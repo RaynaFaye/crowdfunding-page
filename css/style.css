@@ -15,6 +15,7 @@ body {
   border-radius: 50px;
   padding: 15px 35px;
   color: #ffffff;
+  font-family: 'Commissioner', sans-serif;
   font-weight: 700;
   font-size: 14px;
   cursor: pointer;
@@ -27,6 +28,10 @@ body {
   font-weight: 700;
   font-size: 34px;
   color: #000000;
+}
+.title {
+  color: #000000;
+  font-weight: 700;
 }
 /* Header section */
 .header {
@@ -84,11 +89,10 @@ body {
 .intro__text-block {
   grid-column: 1;
   grid-row: 2 / 4;
-  padding: 50px;
+  padding: 50px 45px;
   text-align: center;
 }
 .intro__text-block__title {
-  color: #000000;
   font-size: 28px;
   margin: 18px 0;
 }
@@ -130,7 +134,7 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 25px;
-  padding: 50px;
+  padding: 50px 45px;
 }
 .numbers__block {
   display: flex;
@@ -156,6 +160,64 @@ body {
   border-radius: 50px;
   height: 15px;
   background: hsl(176, 50%, 47%);
+}
+/* About section */
+.about {
+  margin-top: 25px;
+  padding: 50px 45px;
+  line-height: 2;
+  color: hsl(0, 0%, 48%);
+}
+.about__main-title {
+  font-size: 20px;
+  margin: 0 0 25px 0;
+}
+.about__text {
+  margin: 15px 0;
+}
+.about__pledge-option {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  margin-top: 25px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.about__pledge-option__title {
+  font-size: 18px;
+  margin: 0 0 20px 0;
+  grid-column: 1;
+  grid-row: 1;
+}
+.about__pledge-option__value {
+  color: hsl(176, 50%, 47%);
+  font-weight: 500;
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  margin-top: 0;
+}
+.about__pledge-option__text {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  margin: 20px 0;
+}
+.about__pledge-option__left {
+  display: flex;
+  align-items: center;
+  grid-column: 1;
+  grid-row: 3;
+  align-self: center;
+  margin: 0;
+}
+.about__pledge-option__left .number-bold {
+  margin-right: 5px;
+}
+.about__pledge-option__button {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: end;
+  align-self: center;
 }
 /* Attribution Section */
 .attribution {
