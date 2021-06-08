@@ -23,6 +23,11 @@ body {
 .button:focus {
   background: hsl(176, 72%, 28%);
 }
+.number-bold {
+  font-weight: 700;
+  font-size: 34px;
+  color: #000000;
+}
 /* Header section */
 .header {
   background: url(../images/image-hero-desktop.jpg) no-repeat;
@@ -63,6 +68,7 @@ body {
 .main-background {
   background: #ffffff;
   border-radius: 10px;
+  border: 1px solid hsl(0, 0%, 92%);
 }
 /* Intro Block */
 .intro {
@@ -117,6 +123,39 @@ body {
 .intro__text-block__buttons__button-two:hover svg path,
 .intro__text-block__buttons__button-two:focus svg path {
   fill: rgb(184, 184, 184);
+}
+/* Numbers section */
+.numbers {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  padding: 50px;
+}
+.numbers__block {
+  display: flex;
+  flex-direction: column;
+  color: hsl(0, 0%, 48%);
+  border-right: 1px solid hsl(0, 0%, 80%);
+  padding-right: 50px;
+}
+.numbers__block:last-of-type {
+  border-right: none;
+}
+.numbers .number-bold {
+  margin-bottom: 10px;
+}
+.progress-bar {
+  margin-top: 25px;
+  flex-basis: 100%;
+  border-radius: 50px;
+  height: 15px;
+  background: hsl(0, 0%, 92%);
+}
+.progress-bar__filler {
+  border-radius: 50px;
+  height: 15px;
+  background: hsl(176, 50%, 47%);
 }
 /* Attribution Section */
 .attribution {

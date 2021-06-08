@@ -41,3 +41,15 @@ menuLinks.forEach((menuLink) => {
     hideMenu();
   });
 });
+
+//Progress bar
+const progressBarFiller = document.querySelector('.progress-bar__filler');
+const totalBacked = 100000;
+const currentBacked = document.querySelector('.numbers .number-bold:first-of-type');
+
+let currentBackedNumber = currentBacked.textContent;
+let splitNumbers = currentBackedNumber.substring(1).split(',');
+currentBackedNumber = splitNumbers.join('');
+let width = (currentBackedNumber / totalBacked) * 100;
+
+progressBarFiller.style.width = width + '%';
