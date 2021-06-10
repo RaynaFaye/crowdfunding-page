@@ -219,6 +219,34 @@ body {
   justify-self: end;
   align-self: center;
 }
+/*disabled block */
+.disabled .about__pledge-option__text,
+.disabled .about__pledge-option__left {
+  color: hsl(0, 0%, 80%);
+}
+.disabled .about__pledge-option__title {
+  color: hsl(0, 0%, 48%);
+}
+.disabled .about__pledge-option__value {
+  color: hsl(176, 45%, 76%);
+}
+.disabled .about__pledge-option__left .number-bold {
+  color: hsl(0, 0%, 48%);
+}
+.disabled .about__pledge-option__button {
+  background: hsl(0, 0%, 80%);
+  color: #ffffff;
+}
+.about__pledge-option__button[disabled] {
+  cursor: unset;
+}
+/* back-project-modal */
+.back-project-modal {
+  display: none;
+}
+.thanks-modal {
+  display: none;
+}
 /* Attribution Section */
 .attribution {
   grid-column: 2;

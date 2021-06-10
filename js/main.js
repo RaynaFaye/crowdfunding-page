@@ -1,3 +1,16 @@
+//Fill content
+let bambooLeft = document.querySelector('.bamboo-pledge-left');
+let blackLeft = document.querySelector('.black-pledge-left');
+let mahoganyLeft = document.querySelector('.mahogany-pledge-left');
+let amountRaised = document.querySelector('.amount-raised');
+let totalBackers = document.querySelector('.total-backers');
+
+bambooLeft.textContent = 101;
+blackLeft.textContent = 64;
+mahoganyLeft.textContent = 0;
+amountRaised.textContent = '$89,914';
+totalBackers.textContent = '5,007';
+
 //Menu Functionality
 const menuButton = document.querySelector('.header__nav__menu-button');
 const menuButtonImage = menuButton.querySelector('img');
@@ -53,3 +66,16 @@ currentBackedNumber = splitNumbers.join('');
 let width = (currentBackedNumber / totalBacked) * 100;
 
 progressBarFiller.style.width = width + '%';
+
+//Pledges Available
+function checkPledgesLeft(pledge) {
+  let number = parseInt(pledge.textContent);
+  if (number === 0) {
+    pledge.parentElement.parentElement.classList.add('disabled');
+    pledge.parentElement.nextElementSibling.disabled = 'true';
+  }
+}
+
+checkPledgesLeft(bambooLeft);
+checkPledgesLeft(blackLeft);
+checkPledgesLeft(mahoganyLeft);
