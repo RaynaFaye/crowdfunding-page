@@ -97,73 +97,101 @@
         </div>
       </div>
       <!-- Selection modal start -->
-      <div class="back-project-modal">
-        <h2>Back this project</h2>
+      <div class="modal-outer"></div>
+      <div class="back-project-modal main-background">
+        <button class="back-project-modal__close-icon">
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#7A7A7A" fill-rule="evenodd">
+              <path d="M2.404.782l11.314 11.314-2.122 2.122L.282 2.904z" />
+              <path d="M.282 12.096L11.596.782l2.122 2.122L2.404 14.218z" />
+            </g>
+          </svg>
+        </button>
+        <h2 class="title back-project-modal__title">Back this project</h2>
         <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-        <form action="">
+        <form action="" class="back-project-modal__form">
           <fieldset>
-            <div>
-              <input type="radio" name="pledge" id="no-reward" value="no-reward" />
-              <label for="no-reward">Pledge with no reward</label>
-              <p>
-                Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product
-                updates via email.
-              </p>
+            <div class="back-project-modal__form__option">
+              <div class="back-project-modal__form__option__inner">
+                <input type="radio" name="pledge" id="no-reward" value="no-reward" class="back-project-modal__form__option__input" />
+                <span class="back-project-modal__form__option__custom-input"></span>
+                <label for="no-reward" class="back-project-modal__form__option__label">Pledge with no reward</label>
+                <p class="back-project-modal__form__option__text">
+                  Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product
+                  updates via email.
+                </p>
+              </div>
             </div>
-            <div>
-              <div>
-                <input type="radio" name="pledge" id="bamboo" value="bamboo" />
-                <label for="bamboo">Bamboo Stand</label>
-                <p>Pledge $25 or more</p>
-                <p>
+            <div class="back-project-modal__form__option">
+              <div class="back-project-modal__form__option__inner">
+                <input type="radio" name="pledge" id="bamboo" value="bamboo" class="back-project-modal__form__option__input" />
+                <span class="back-project-modal__form__option__custom-input"></span>
+                <div class="back-project-modal__form__option__label-block">
+                  <label for="bamboo" class="back-project-modal__form__option__label">Bamboo Stand</label>
+                  <p class="back-project-modal__form__option__value">Pledge $25 or more</p>
+                </div>
+
+                <p class="back-project-modal__form__option__text">
                   You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a
                   special Backer member list.
                 </p>
-                <p><span>101</span> left</p>
+                <p class="back-project-modal__form__option__left"><span class="number-bold bamboo-pledge-left">101</span> left</p>
               </div>
               <!-- Selected pledge start -->
-              <div>
-                <label for="">Enter your pledge</label>
-                <span>$<input type="number" min="25" value="25" /></span>
-                <input type="submit" value="Continue" />
+              <div class="back-project-modal__form__option__inner-two">
+                <label for="" class="back-project-modal__form__option__pledge-label">Enter your pledge</label>
+                <span class="back-project-modal__form__option__pledge-input-block"
+                  >$<input type="number" min="25" value="25" class="back-project-modal__form__option__pledge-input-block__input"
+                /></span>
+                <input type="submit" value="Continue" class="button back-project-modal__form__option__button" />
               </div>
               <!-- Selected pledge end -->
             </div>
-            <div>
-              <div>
-                <input type="radio" name="pledge" id="black" value="black" />
-                <label for="black">Black Edition Stand</label>
-                <p>Pledge $75 or more</p>
-                <p>
+            <div class="back-project-modal__form__option">
+              <div class="back-project-modal__form__option__inner">
+                <input type="radio" name="pledge" id="black" value="black" class="back-project-modal__form__option__input" />
+                <span class="back-project-modal__form__option__custom-input"></span>
+                <div class="back-project-modal__form__option__label-block">
+                  <label for="black" class="back-project-modal__form__option__label">Black Edition Stand</label>
+                  <p class="back-project-modal__form__option__value">Pledge $75 or more</p>
+                </div>
+                <p class="back-project-modal__form__option__text">
                   You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is
                   included.
                 </p>
-                <p><span>64</span> left</p>
+                <p class="back-project-modal__form__option__left"><span class="number-bold black-pledge-left">64</span> left</p>
               </div>
               <!-- Selected pledge start -->
-              <div>
-                <label for="">Enter your pledge</label>
-                <span>$<input type="number" min="75" value="75" /></span>
-                <input type="submit" value="Continue" />
+              <div class="back-project-modal__form__option__inner-two">
+                <label for="" class="back-project-modal__form__option__pledge-label">Enter your pledge</label>
+                <span class="back-project-modal__form__option__pledge-input-block"
+                  >$<input type="number" min="75" value="75" class="back-project-modal__form__option__pledge-input-block__input"
+                /></span>
+                <input type="submit" value="Continue" class="button back-project-modal__form__option__button" />
               </div>
               <!-- Selected pledge end -->
             </div>
-            <div>
-              <div>
-                <input type="radio" name="pledge" id="mahogany" value="Mahogany" />
-                <label for="mahogany">Mahogany Special Edition</label>
-                <p>Pledge $200 or more</p>
-                <p>
+            <div class="back-project-modal__form__option">
+              <div class="back-project-modal__form__option__inner">
+                <input type="radio" name="pledge" id="mahogany" value="Mahogany" class="back-project-modal__form__option__input" />
+                <span class="back-project-modal__form__option__custom-input"></span>
+                <div class="back-project-modal__form__option__label-block">
+                  <label for="mahogany" class="back-project-modal__form__option__label">Mahogany Special Edition</label>
+                  <p class="back-project-modal__form__option__value">Pledge $200 or more</p>
+                </div>
+                <p class="back-project-modal__form__option__text">
                   You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list.
                   Shipping is included.
                 </p>
-                <p><span>0</span> left</p>
+                <p class="back-project-modal__form__option__left"><span class="number-bold mahogany-pledge-left">0</span> left</p>
               </div>
               <!-- Selected pledge start -->
-              <div>
-                <label for="">Enter your pledge</label>
-                <span>$<input type="number" min="200" value="200" /></span>
-                <input type="submit" value="Continue" />
+              <div class="back-project-modal__form__option__inner-two">
+                <label for="" class="back-project-modal__form__option__pledge-label">Enter your pledge</label>
+                <span class="back-project-modal__form__option__pledge-input-block"
+                  >$<input type="number" min="200" value="200" class="back-project-modal__form__option__pledge-input-block__input"
+                /></span>
+                <input type="submit" value="Continue" class="button back-project-modal__form__option__button" />
               </div>
               <!-- Selected pledge end -->
             </div>
