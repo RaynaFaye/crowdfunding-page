@@ -120,3 +120,37 @@ selectRewardButtons.forEach((selectRewardButton) => {
     openModal();
   });
 });
+
+//Pledge Option: show block to enter pledge amount for specific pledge
+const pledgeOptions = document.querySelectorAll('.back-project-modal__form__option__input');
+const pledgeOptionsOuters = document.querySelectorAll('.back-project-modal__form__option');
+const pledgeOptionsInnersTwo = document.querySelectorAll('.back-project-modal__form__option__inner-two');
+
+function resetPledgeOptionsNonSelected() {
+  pledgeOptionsOuters.forEach((pledgeOptionOuter) => {
+    pledgeOptionOuter.classList.remove('checked');
+  });
+  pledgeOptionsInnersTwo.forEach((pledgeOptionInnerTwo) => {
+    pledgeOptionInnerTwo.style.display = 'none';
+  });
+}
+
+pledgeOptions.forEach((pledgeOption) => {
+  let optionSelection = pledgeOption.parentElement.parentElement;
+  let optionInnerTwo = pledgeOption.parentElement.nextElementSibling;
+  pledgeOption.addEventListener('change', () => {
+    resetPledgeOptionsNonSelected();
+    if (pledgeOption.checked) {
+      console.log(optionSelection);
+      previousChecked = pledgeOption;
+      optionSelection.classList.add('checked');
+      optionInnerTwo.style.display = 'grid';
+    }
+  });
+});
+
+//Form Functionality
+const form = document.querySelector('.back-project-modal__form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+});
