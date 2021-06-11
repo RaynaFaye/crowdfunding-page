@@ -1,13 +1,23 @@
 //Fill content
-let bambooLeft = document.querySelector('.bamboo-pledge-left');
-let blackLeft = document.querySelector('.black-pledge-left');
-let mahoganyLeft = document.querySelector('.mahogany-pledge-left');
+let bambooLeft = document.querySelectorAll('.bamboo-pledge-left');
+let blackLeft = document.querySelectorAll('.black-pledge-left');
+let mahoganyLeft = document.querySelectorAll('.mahogany-pledge-left');
+let bambooNumber = 101;
+let blackNumber = 64;
+let mahoganyNumber = 0;
 let amountRaised = document.querySelector('.amount-raised');
 let totalBackers = document.querySelector('.total-backers');
 
-bambooLeft.textContent = 101;
-blackLeft.textContent = 64;
-mahoganyLeft.textContent = 0;
+function fillPledgeLeft(content, number) {
+  content.forEach((content) => {
+    content.textContent = number;
+    checkPledgesLeft(content);
+  });
+}
+
+fillPledgeLeft(bambooLeft, bambooNumber);
+fillPledgeLeft(blackLeft, blackNumber);
+fillPledgeLeft(mahoganyLeft, mahoganyNumber);
 amountRaised.textContent = '$89,914';
 totalBackers.textContent = '5,007';
 
@@ -72,10 +82,12 @@ function checkPledgesLeft(pledge) {
   let number = parseInt(pledge.textContent);
   if (number === 0) {
     pledge.parentElement.parentElement.classList.add('disabled');
-    pledge.parentElement.nextElementSibling.disabled = 'true';
+    if (pledge.parentElement.nextElementSibling && pledge.parentElement.nextElementSibling.classList.contains('about__pledge-option__button')) {
+      pledge.parentElement.nextElementSibling.textContent = 'Out of Stock';
+      pledge.parentElement.nextElementSibling.disabled = 'true';
+    }
+    if (pledge.parentElement.parentElement.firstElementChild.classList.contains('back-project-modal__form__option__input')) {
+      pledge.parentElement.parentElement.firstElementChild.disabled = 'true';
+    }
   }
 }
-
-checkPledgesLeft(bambooLeft);
-checkPledgesLeft(blackLeft);
-checkPledgesLeft(mahoganyLeft);

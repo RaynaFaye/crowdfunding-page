@@ -423,6 +423,23 @@ input[type='number'] {
   grid-column: 4;
   padding: 15px 20px;
 }
+/* disabled modal inner block */
+.disabled .back-project-modal__form__option__label {
+  color: hsl(0, 0%, 48%);
+}
+.disabled .back-project-modal__form__option__text,
+.disabled .back-project-modal__form__option__left {
+  color: hsl(0, 0%, 80%);
+}
+.disabled .back-project-modal__form__option__value {
+  color: hsl(176, 45%, 76%);
+}
+.disabled .back-project-modal__form__option__left .number-bold {
+  color: hsl(0, 0%, 48%);
+}
+.back-project-modal__form__option__input[disabled] {
+  cursor: unset;
+}
 /* Thanks Modal */
 .thanks-modal {
   display: none;
