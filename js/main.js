@@ -91,3 +91,32 @@ function checkPledgesLeft(pledge) {
     }
   }
 }
+
+//Close and open modal
+const closeModalButton = document.querySelector('.back-project-modal__close-icon');
+const modalOuter = document.querySelector('.modal-outer');
+const modalPledge = document.querySelector('.back-project-modal');
+const selectRewardButtons = document.querySelectorAll('.about__pledge-option__button');
+
+function openModal() {
+  modalOuter.classList.add('open');
+  modalPledge.classList.add('open');
+}
+function closeModal() {
+  modalOuter.classList.remove('open');
+  modalPledge.classList.remove('open');
+}
+
+closeModalButton.addEventListener('click', () => {
+  closeModal();
+});
+
+selectRewardButtons.forEach((selectRewardButton) => {
+  selectRewardButton.addEventListener('click', () => {
+    document.documentElement.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    openModal();
+  });
+});

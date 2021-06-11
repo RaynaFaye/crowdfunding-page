@@ -243,7 +243,7 @@ body {
 }
 /* Modals */
 .modal-outer {
-  /* display: none; */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -254,13 +254,17 @@ body {
 }
 /* Back-project-modal */
 .back-project-modal {
-  /* display: none; */
+  display: none;
   background: #ffffff;
   position: absolute;
   top: -100px;
   z-index: 2;
   padding: 25px 30px;
   color: hsl(0, 0%, 48%);
+}
+.modal-outer.open,
+.back-project-modal.open {
+  display: block;
 }
 .back-project-modal__close-icon {
   position: absolute;
