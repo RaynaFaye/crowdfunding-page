@@ -92,7 +92,7 @@ function checkPledgesLeft(pledge) {
   }
 }
 
-//Close and open modal
+//Close and open Pledge modal
 const closeModalButton = document.querySelector('.back-project-modal__close-icon');
 const modalOuter = document.querySelector('.modal-outer');
 const modalPledge = document.querySelector('.back-project-modal');
@@ -114,7 +114,7 @@ closeModalButton.addEventListener('click', () => {
 selectRewardButtons.forEach((selectRewardButton) => {
   selectRewardButton.addEventListener('click', () => {
     document.documentElement.scrollTo({
-      top: 0,
+      top: 200,
       behavior: 'smooth',
     });
     openModal();
@@ -149,8 +149,25 @@ pledgeOptions.forEach((pledgeOption) => {
   });
 });
 
+const thanksModal = document.querySelector('.thanks-modal');
+
 //Form Functionality
 const form = document.querySelector('.back-project-modal__form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  closeModal();
+  //Open Thanks modal
+  document.documentElement.scrollTo({
+    top: 250,
+    behavior: 'smooth',
+  });
+  modalOuter.classList.add('open');
+  thanksModal.classList.add('open');
+});
+
+//Close thanks modal
+const closeThanksModalButton = document.querySelector('.thanks-modal__button');
+closeThanksModalButton.addEventListener('click', () => {
+  modalOuter.classList.remove('open');
+  thanksModal.classList.remove('open');
 });
