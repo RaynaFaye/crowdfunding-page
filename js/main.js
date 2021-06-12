@@ -65,6 +65,37 @@ menuLinks.forEach((menuLink) => {
   });
 });
 
+//Bookmarked
+const bookmarkButton = document.querySelector('.intro__text-block__buttons__button-two');
+const bookmarked = localStorage.getItem('bookmarked');
+
+function bookmark() {
+  bookmarkButton.classList.add('bookmarked');
+  bookmarkButton.lastChild.textContent = 'Bookmarked';
+  localStorage.setItem('bookmarked', 'true');
+}
+
+function notBookmarked() {
+  bookmarkButton.classList.remove('bookmarked');
+  bookmarkButton.lastChild.textContent = 'Bookmark';
+  localStorage.setItem('bookmarked', 'false');
+}
+
+function checkBookmark() {
+  if (bookmarked === 'true') {
+    bookmark();
+  }
+}
+bookmarkButton.addEventListener('click', () => {
+  if (bookmarkButton.classList.contains('bookmarked')) {
+    notBookmarked();
+  } else {
+    bookmark();
+  }
+});
+
+checkBookmark();
+
 //Progress bar
 const progressBarFiller = document.querySelector('.progress-bar__filler');
 const totalBacked = 100000;
@@ -141,7 +172,6 @@ pledgeOptions.forEach((pledgeOption) => {
   pledgeOption.addEventListener('change', () => {
     resetPledgeOptionsNonSelected();
     if (pledgeOption.checked) {
-      console.log(optionSelection);
       previousChecked = pledgeOption;
       optionSelection.classList.add('checked');
       optionInnerTwo.style.display = 'grid';

@@ -127,7 +127,16 @@ body {
 }
 .intro__text-block__buttons__button-two:hover svg path,
 .intro__text-block__buttons__button-two:focus svg path {
-  fill: rgb(184, 184, 184);
+  fill: #b8b8b8;
+}
+.intro__text-block__buttons__button-two.bookmarked {
+  color: #147b74;
+}
+.intro__text-block__buttons__button-two.bookmarked svg circle {
+  fill: #147b74;
+}
+.intro__text-block__buttons__button-two.bookmarked svg path {
+  fill: #ffffff;
 }
 /* Numbers section */
 .numbers {
@@ -274,6 +283,10 @@ body {
   border: none;
   cursor: pointer;
 }
+.back-project-modal__close-icon:hover svg g,
+.back-project-modal__close-icon:focus svg g {
+  fill: #000000;
+}
 .back-project-modal__title {
   font-size: 24px;
   font-weight: 700;
@@ -354,6 +367,10 @@ body {
   grid-column: 2;
   grid-row: 1;
   margin-right: 25px;
+  cursor: pointer;
+}
+.back-project-modal__form__option__label:hover {
+  color: hsl(176, 50%, 47%);
 }
 .back-project-modal__form__option__value {
   color: hsl(176, 50%, 47%);
@@ -407,6 +424,9 @@ body {
   color: hsl(0, 0%, 75%);
   font-weight: 700;
 }
+.back-project-modal__form__option__pledge-input-block:hover {
+  border: 1px solid hsl(176, 72%, 28%);
+}
 .back-project-modal__form__option__pledge-input-block__input {
   border: none;
   outline: none;
@@ -414,6 +434,7 @@ body {
   font-weight: 700;
   font-family: 'Commissioner', sans-serif;
   font-size: 14px;
+  cursor: pointer;
 }
 .back-project-modal__form__option__pledge-input-block__input::-webkit-outer-spin-button,
 .back-project-modal__form__option__pledge-input-block__input::-webkit-inner-spin-button {
