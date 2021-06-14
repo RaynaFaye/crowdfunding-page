@@ -123,35 +123,6 @@ function checkPledgesLeft(pledge) {
   }
 }
 
-//Close and open Pledge modal
-const closeModalButton = document.querySelector('.back-project-modal__close-icon');
-const modalOuter = document.querySelector('.modal-outer');
-const modalPledge = document.querySelector('.back-project-modal');
-const selectRewardButtons = document.querySelectorAll('.about__pledge-option__button');
-
-function openModal() {
-  modalOuter.classList.add('open');
-  modalPledge.classList.add('open');
-}
-function closeModal() {
-  modalOuter.classList.remove('open');
-  modalPledge.classList.remove('open');
-}
-
-closeModalButton.addEventListener('click', () => {
-  closeModal();
-});
-
-selectRewardButtons.forEach((selectRewardButton) => {
-  selectRewardButton.addEventListener('click', () => {
-    document.documentElement.scrollTo({
-      top: 200,
-      behavior: 'smooth',
-    });
-    openModal();
-  });
-});
-
 //Pledge Option: show block to enter pledge amount for specific pledge
 const pledgeOptions = document.querySelectorAll('.back-project-modal__form__option__input');
 const pledgeOptionsOuters = document.querySelectorAll('.back-project-modal__form__option');
@@ -166,22 +137,75 @@ function resetPledgeOptionsNonSelected() {
   });
 }
 
-pledgeOptions.forEach((pledgeOption) => {
-  let optionSelection = pledgeOption.parentElement.parentElement;
-  let optionInnerTwo = pledgeOption.parentElement.nextElementSibling;
-  pledgeOption.addEventListener('change', () => {
-    resetPledgeOptionsNonSelected();
+function openPledgeOptionSelected() {
+  pledgeOptions.forEach((pledgeOption) => {
+    let optionSelection = pledgeOption.parentElement.parentElement;
+    let optionInnerTwo = pledgeOption.parentElement.nextElementSibling;
     if (pledgeOption.checked) {
       previousChecked = pledgeOption;
       optionSelection.classList.add('checked');
       optionInnerTwo.style.display = 'grid';
     }
+    pledgeOption.addEventListener('change', () => {
+      resetPledgeOptionsNonSelected();
+      if (pledgeOption.checked) {
+        previousChecked = pledgeOption;
+        optionSelection.classList.add('checked');
+        optionInnerTwo.style.display = 'grid';
+      }
+    });
+  });
+}
+
+openPledgeOptionSelected();
+
+//Close and open Pledge modal
+const closeModalButton = document.querySelector('.back-project-modal__close-icon');
+const modalOuter = document.querySelector('.modal-outer');
+const modalPledge = document.querySelector('.back-project-modal');
+const selectRewardButtons = document.querySelectorAll('.about__pledge-option__button');
+
+function openModal(pledgeType) {
+  modalOuter.classList.add('open');
+  modalPledge.classList.add('open');
+  switch (pledgeType) {
+    case 'bamboo':
+      modalPledge.lastElementChild.bamboo.checked = 'true';
+      break;
+    case 'black':
+      modalPledge.lastElementChild.black.checked = 'true';
+      break;
+    case 'mahogany':
+      modalPledge.lastElementChild.mahogany.checked = 'true';
+      break;
+    default:
+      break;
+  }
+  openPledgeOptionSelected();
+}
+function closeModal() {
+  modalOuter.classList.remove('open');
+  modalPledge.classList.remove('open');
+}
+
+closeModalButton.addEventListener('click', () => {
+  closeModal();
+  resetPledgeOptionsNonSelected();
+});
+
+selectRewardButtons.forEach((selectRewardButton) => {
+  selectRewardButton.addEventListener('click', () => {
+    let pledgeType = selectRewardButton.getAttribute('data-pledge');
+    document.documentElement.scrollTo({
+      top: 200,
+      behavior: 'smooth',
+    });
+    openModal(pledgeType);
   });
 });
 
-const thanksModal = document.querySelector('.thanks-modal');
-
 //Form Functionality
+const thanksModal = document.querySelector('.thanks-modal');
 const form = document.querySelector('.back-project-modal__form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -201,3 +225,7 @@ closeThanksModalButton.addEventListener('click', () => {
   modalOuter.classList.remove('open');
   thanksModal.classList.remove('open');
 });
+//Clear form if user refreshes page
+window.onbeforeunload = function () {
+  form.reset();
+};
