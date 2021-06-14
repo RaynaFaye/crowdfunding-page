@@ -293,6 +293,9 @@ body {
   font-weight: 700;
   margin: 20px 0;
 }
+.back-project-modal__text {
+  line-height: 2;
+}
 .back-project-modal__form fieldset {
   border: none;
   padding: 0;
@@ -634,6 +637,81 @@ input[type='number'] {
   }
   .about__pledge-option__left {
     margin-bottom: 10px;
+  }
+  /* Modals */
+  /* Back-project-modal */
+  .back-project-modal {
+    top: -125px;
+    padding: 25px 20px;
+  }
+  .back-project-modal__close-icon {
+    top: 25px;
+  }
+  .back-project-modal__title {
+    font-size: 20px;
+    margin: 0 0 20px;
+  }
+  .back-project-modal__text {
+    line-height: 1.7;
+  }
+  .back-project-modal__form__option__inner {
+    grid-template-columns: 40px 1fr;
+  }
+  .back-project-modal__form__option__label-block {
+    flex-direction: column;
+  }
+  .back-project-modal__form__option__label {
+    margin: 0;
+  }
+  .back-project-modal__form__option__value {
+    margin: 10px 0 15px;
+  }
+  .back-project-modal__form__option__text {
+    grid-column: 1 / -1;
+    line-height: 1.7;
+  }
+  .back-project-modal__form__option__left {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    justify-self: start;
+    margin-top: 10px;
+  }
+  /* Inner Two Enter pledge section */
+  .back-project-modal__form__option__inner-two {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
+  .back-project-modal__form__option__pledge-label {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+    margin-bottom: 10px;
+  }
+  .back-project-modal__form__option__pledge-input-block {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .back-project-modal__form__option__button {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  /* Thanks Modal */
+  .thanks-modal {
+    margin: 0;
+    top: -100px;
+    padding: 40px 20px;
+  }
+  .thanks-modal__image {
+    width: 64px;
+  }
+  .thanks-modal__title {
+    font-size: 20px;
+    margin: 30px 0 30px 0;
+  }
+  .thanks-modal__text {
+    line-height: 1.7;
   }
   /* Attribution Section */
   .attribution {
