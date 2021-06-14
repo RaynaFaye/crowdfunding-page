@@ -71,13 +71,13 @@ const bookmarked = localStorage.getItem('bookmarked');
 
 function bookmark() {
   bookmarkButton.classList.add('bookmarked');
-  bookmarkButton.lastChild.textContent = 'Bookmarked';
+  bookmarkButton.lastElementChild.textContent = 'Bookmarked';
   localStorage.setItem('bookmarked', 'true');
 }
 
 function notBookmarked() {
   bookmarkButton.classList.remove('bookmarked');
-  bookmarkButton.lastChild.textContent = 'Bookmark';
+  bookmarkButton.lastElementChild.textContent = 'Bookmark';
   localStorage.setItem('bookmarked', 'false');
 }
 
