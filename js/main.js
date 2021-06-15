@@ -1,26 +1,3 @@
-//Fill content
-let bambooLeft = document.querySelectorAll('.bamboo-pledge-left');
-let blackLeft = document.querySelectorAll('.black-pledge-left');
-let mahoganyLeft = document.querySelectorAll('.mahogany-pledge-left');
-let bambooNumber = 101;
-let blackNumber = 64;
-let mahoganyNumber = 0;
-let amountRaised = document.querySelector('.amount-raised');
-let totalBackers = document.querySelector('.total-backers');
-
-function fillPledgeLeft(content, number) {
-  content.forEach((content) => {
-    content.textContent = number;
-    checkPledgesLeft(content);
-  });
-}
-
-fillPledgeLeft(bambooLeft, bambooNumber);
-fillPledgeLeft(blackLeft, blackNumber);
-fillPledgeLeft(mahoganyLeft, mahoganyNumber);
-amountRaised.textContent = '$89,914';
-totalBackers.textContent = '5,007';
-
 //Menu Functionality
 const menuButton = document.querySelector('.header__nav__menu-button');
 const menuButtonImage = menuButton.querySelector('img');
@@ -65,50 +42,29 @@ menuLinks.forEach((menuLink) => {
   });
 });
 
-//Bookmarked
-const bookmarkButton = document.querySelector('.intro__text-block__buttons__button-two');
-const bookmarked = localStorage.getItem('bookmarked');
+//Fill content
+let bambooLeft = document.querySelectorAll('.bamboo-pledge-left');
+let blackLeft = document.querySelectorAll('.black-pledge-left');
+let mahoganyLeft = document.querySelectorAll('.mahogany-pledge-left');
+let bambooNumber = 101;
+let blackNumber = 64;
+let mahoganyNumber = 0;
+let amountRaisedNumber = 89914;
+let totalBackersNumber = 5007;
+let amountRaised = document.querySelector('.amount-raised');
+let totalBackers = document.querySelector('.total-backers');
 
-function bookmark() {
-  bookmarkButton.classList.add('bookmarked');
-  bookmarkButton.lastElementChild.textContent = 'Bookmarked';
-  localStorage.setItem('bookmarked', 'true');
+// Format Thousands numbers
+function formatThousands(number) {
+  let value;
+  let num1 = number.toString().slice(0, -3);
+  let num2 = number.toString().slice(-3);
+  return (value = `${num1},${num2}`);
 }
+amountRaised.textContent = '$' + formatThousands(amountRaisedNumber);
+totalBackers.textContent = formatThousands(totalBackersNumber);
 
-function notBookmarked() {
-  bookmarkButton.classList.remove('bookmarked');
-  bookmarkButton.lastElementChild.textContent = 'Bookmark';
-  localStorage.setItem('bookmarked', 'false');
-}
-
-function checkBookmark() {
-  if (bookmarked === 'true') {
-    bookmark();
-  }
-}
-bookmarkButton.addEventListener('click', () => {
-  if (bookmarkButton.classList.contains('bookmarked')) {
-    notBookmarked();
-  } else {
-    bookmark();
-  }
-});
-
-checkBookmark();
-
-//Progress bar
-const progressBarFiller = document.querySelector('.progress-bar__filler');
-const totalBacked = 100000;
-const currentBacked = document.querySelector('.numbers .number-bold:first-of-type');
-
-let currentBackedNumber = currentBacked.textContent;
-let splitNumbers = currentBackedNumber.substring(1).split(',');
-currentBackedNumber = splitNumbers.join('');
-let width = (currentBackedNumber / totalBacked) * 100;
-
-progressBarFiller.style.width = width + '%';
-
-//Pledges Available
+//Check all pledges left and diasble block if 0
 function checkPledgesLeft(pledge) {
   let number = parseInt(pledge.textContent);
   if (number === 0) {
@@ -122,6 +78,57 @@ function checkPledgesLeft(pledge) {
     }
   }
 }
+function fillPledgeLeft(content, number) {
+  content.forEach((content) => {
+    content.textContent = number;
+    checkPledgesLeft(content);
+  });
+}
+
+//Progress bar
+function fillProgressBar() {
+  const progressBarFiller = document.querySelector('.progress-bar__filler');
+  const totalBacked = 100000;
+  let width = (amountRaisedNumber / totalBacked) * 100;
+
+  progressBarFiller.style.width = width + '%';
+}
+//Fill out the page content
+function fillPageContent() {
+  fillPledgeLeft(bambooLeft, bambooNumber);
+  fillPledgeLeft(blackLeft, blackNumber);
+  fillPledgeLeft(mahoganyLeft, mahoganyNumber);
+  fillProgressBar();
+}
+fillPageContent();
+
+//Bookmarked
+const bookmarkButton = document.querySelector('.intro__text-block__buttons__button-two');
+const bookmarked = localStorage.getItem('bookmarked');
+
+function bookmark() {
+  bookmarkButton.classList.add('bookmarked');
+  bookmarkButton.lastElementChild.textContent = 'Bookmarked';
+  localStorage.setItem('bookmarked', 'true');
+}
+function notBookmarked() {
+  bookmarkButton.classList.remove('bookmarked');
+  bookmarkButton.lastElementChild.textContent = 'Bookmark';
+  localStorage.setItem('bookmarked', 'false');
+}
+function checkBookmark() {
+  if (bookmarked === 'true') {
+    bookmark();
+  }
+}
+bookmarkButton.addEventListener('click', () => {
+  if (bookmarkButton.classList.contains('bookmarked')) {
+    notBookmarked();
+  } else {
+    bookmark();
+  }
+});
+checkBookmark();
 
 //Pledge Option: show block to enter pledge amount for specific pledge
 const pledgeOptions = document.querySelectorAll('.back-project-modal__form__option__input');
@@ -136,7 +143,6 @@ function resetPledgeOptionsNonSelected() {
     pledgeOptionInnerTwo.style.display = 'none';
   });
 }
-
 function openPledgeOptionSelected() {
   pledgeOptions.forEach((pledgeOption) => {
     let optionSelection = pledgeOption.parentElement.parentElement;
@@ -156,7 +162,6 @@ function openPledgeOptionSelected() {
     });
   });
 }
-
 openPledgeOptionSelected();
 
 //Close and open Pledge modal
@@ -209,6 +214,29 @@ const thanksModal = document.querySelector('.thanks-modal');
 const form = document.querySelector('.back-project-modal__form');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
+  let pledgeSelected = form.pledge.value;
+  let pledgeInput = event.submitter.previousElementSibling.lastElementChild;
+  let currentValue = pledgeInput.value;
+  amountRaisedNumber += Number(currentValue);
+  totalBackersNumber += 1;
+  switch (pledgeSelected) {
+    case 'bamboo':
+      bambooNumber = bambooNumber - 1;
+      break;
+    case 'black':
+      blackNumber = blackNumber - 1;
+      break;
+    case 'mahogany':
+      mahoganyNumber = mahoganyNumber - 1;
+      break;
+    default:
+      break;
+  }
+  pledgeInput.value = pledgeInput.min;
+  fillPageContent();
+  amountRaised.textContent = '$' + formatThousands(amountRaisedNumber);
+  totalBackers.textContent = formatThousands(totalBackersNumber);
+  resetPledgeOptionsNonSelected();
   closeModal();
   //Open Thanks modal
   document.documentElement.scrollTo({
